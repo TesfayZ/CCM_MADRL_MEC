@@ -1,3 +1,5 @@
+This is the code for the paper [Combinatorial Client-Master Multiagent Deep Reinforcement Learning for Task Offloading in Mobile Edge Computing](https://arxiv.org/abs/2402.11653)
+
 The three folders correspond to the three figures on the paper. 
 The "s10lre4e3CCM_MADRL_MEC" stands for 10 steps per episode, and learning rates of 0.0001 and 0.001 for the cllient and master agents respectively. 
 Inside the folder, the CSV folder stores the performance of the experiment at each episode. 
