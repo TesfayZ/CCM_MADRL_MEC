@@ -13,6 +13,6 @@ To run multiple experiments, the index values must must start from 0 and incream
 
 The benchmarks can run one by one using <python Benchmarks_run.py index> by replacing the Benchmarks_modes in line 37 of Benchmarks_run.py with one of the choices. 
 
-To plot the result, adjust the numebr of runs in line 93 of the plot3.py and run as <python plot3.py> 
+To plot the result, adjust the numebr of runs in line 93 of the plot3.py and run as python plot3.py
 
 Note: For the 100 steps per episode experiments ("s100lre4e3CCM_MADRL_MEC", and "s100lre4e3CCM_MADRL_MECLabmbda5"), use the s100lre4e3CCM_MADRL_MECLabmbda5 for your analysis of the experiment. The one with lambda1=Lambda2=0.5 has neglected the energy comsumption becuase the values is small compared to the latency and only latency affects the performance. lambda1=1 and Lambda2=5 provides better balance between the two costs. More explanations will come in the future veresion. 
