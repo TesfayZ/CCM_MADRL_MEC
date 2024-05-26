@@ -227,7 +227,7 @@ class CCMADDPG(object):
         #different actors
         for agent_id in range(self.n_agents): 
             newactor_actions = [] 
-            # Calculate next target actions for each agent
+            # Calculate new actions for each agent
             for agent_id in range(self.n_agents):
                 newactor_action_var = self.actors[agent_id](states_var[:, agent_id, :])
                 if self.use_cuda:
@@ -240,7 +240,7 @@ class CCMADDPG(object):
             whole_newactor_actions_var = newactor_actions_var.view(-1, self.n_agents*self.action_dim)
             actor_loss = []
             for b in range(self.batch_size):
-                perQ = self.critics[0](whole_next_states_var[b], whole_newactor_actions_var[b])
+                perQ = self.critics[0](whole_states_var[b], whole_newactor_actions_var[b])
                 actor_loss.append(perQ*is_weights[b])
             actor_loss = torch.stack(actor_loss, dim=0)
             actor_loss = - actor_loss.mean()
