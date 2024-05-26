@@ -269,7 +269,7 @@ class CCM_MADDPG(object):
         #different actors
         for agent_id in range(self.n_agents): 
             newactor_actions = [] 
-            # Calculate next target actions for each agent
+            # Calculate new actions for each agent
             for agent_id in range(self.n_agents):
                 newactor_action_var = self.actors[agent_id](states_var[:, agent_id, :])
                 if self.use_cuda:
@@ -285,10 +285,10 @@ class CCM_MADDPG(object):
                 Qselected = []
                 for a in range(self.n_agents):
                     if critic_actions_var[b,a,0] == 1: # if it was selected
-                        perQ = self.critics[0](whole_next_states_var[b], whole_newactor_actions_var[b], states_var[b,a,:], newactor_actions_var[b,a,:])
+                        perQ = self.critics[0](whole_states_var[b], whole_newactor_actions_var[b], states_var[b,a,:], newactor_actions_var[b,a,:])
                         Qselected.append(perQ*is_weights[b])
                 if len(Qselected)==0:# if if all tasks were allocated locally, the feedback should be sent using the commbined local decision and a fake perAgent that learns the best Q value for that situation 
-                    perQ = self.critics[0](whole_next_states_var[b], whole_newactor_actions_var[b], torch.zeros(self.state_dim), torch.zeros(self.action_dim))
+                    perQ = self.critics[0](whole_states_var[b], whole_newactor_actions_var[b], torch.zeros(self.state_dim), torch.zeros(self.action_dim))
                     actor_loss.append(perQ*is_weights[b])
                 else:# the best Q-value is found from the Q-vlaue of one of the selected actions
                     actor_loss.append(max(Qselected))
