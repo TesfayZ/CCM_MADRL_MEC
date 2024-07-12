@@ -1,4 +1,4 @@
-This is the code for the paper [Combinatorial Client-Master Multiagent Deep Reinforcement Learning for Task Offloading in Mobile Edge Computing](https://arxiv.org/abs/2402.11653) More detail can be found in the 5th chapter of my [PhD thesis](https://scholar.google.gr/citations?view_op=view_citation&hl=en&user=17hsRTkAAAAJ&citation_for_view=17hsRTkAAAAJ:UeHWp8X0CEIC).
+This is the code for the paper [Combinatorial Client-Master Multiagent Deep Reinforcement Learning for Task Offloading in Mobile Edge Computing](https://arxiv.org/abs/2402.11653). Detailed description can be found in the 5th chapter of my [PhD thesis](https://scholar.google.gr/citations?view_op=view_citation&hl=en&user=17hsRTkAAAAJ&citation_for_view=17hsRTkAAAAJ:UeHWp8X0CEIC).
 
 The three folders correspond to the three figures on the paper. 
 The "s10lre4e3CCM_MADRL_MEC" stands for 10 steps per episode, and learning rates of 0.0001 and 0.001 for the cllient and master agents respectively. 
