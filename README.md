@@ -8,10 +8,10 @@ The "Figures" folder stores the output of the plotting scripts.
 The plotAtTraning.py plots the result using the traning environment whereas the other scripts plot the result using the evaluation environment. 
 
 
-Run the CCM_MADRL_MEC as <python run.py index> where index=0 stores the result to a CCM_MADRL_MEC0.csv file. 
+Run the CCM_MADRL_MEC as python run.py index where index=0 stores the result to a CCM_MADRL_MEC0.csv file. 
 To run multiple experiments, the index values must must start from 0 and increament until the number of runs so that they are accessed sequentiality for the plotting scripts.
 
-Run the benchmark algorithms one by one using <python Benchmarks_run.py index> by replacing the Benchmarks_modes in line 37 of Benchmarks_run.py with one of the choices in the commented text. 
+Run the benchmark algorithms one by one using python Benchmarks_run.py index by replacing the Benchmarks_modes in line 37 of Benchmarks_run.py with one of the choices in the commented text. 
 
 To plot the result, adjust the number of runs in line 93 of the plot3.py and run as python plot3.py
 
