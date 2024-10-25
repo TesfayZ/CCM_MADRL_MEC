@@ -284,7 +284,7 @@ class CCM_MADDPG(object):
             for b in range(self.batch_size):
                 Qselected = []
                 for a in range(self.n_agents):
-                    if critic_actions_var[b,a,0] == 1: # if it was selected
+                    if newactor_actions_var[b,a,0] >= 0: # if it is delegated to the master agent
                         perQ = self.critics[0](whole_states_var[b], whole_newactor_actions_var[b], states_var[b,a,:], newactor_actions_var[b,a,:])
                         Qselected.append(perQ*is_weights[b])
                 if len(Qselected)==0:# if if all tasks were allocated locally, the feedback should be sent using the commbined local decision and a fake perAgent that learns the best Q value for that situation 
