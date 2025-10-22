@@ -49,10 +49,10 @@ class CCMADDPG(object):
             self.epsilon_decay = epsilon_decay
         self.use_cuda = use_cuda and torch.cuda.is_available()
         self.target_tau = target_tau
-        self.actors = [ActorNetwork(self.state_dim, self.action_dim, self.actor_output_activation)] * self.n_agents
+        self.actors = [ActorNetwork(self.state_dim, self.action_dim, self.actor_output_activation) for _ in range(self.n_agents)]
         critic_state_dim = self.n_agents * self.state_dim
         critic_action_dim = self.n_agents * self.action_dim
-        self.critics = [CriticNetwork(critic_state_dim, critic_action_dim)] * 1
+        self.critics = [CriticNetwork(critic_state_dim, critic_action_dim) for _ in range(1)]
         # to ensure target network and learning network has the same weights
         self.actors_target = deepcopy(self.actors)
         self.critics_target = deepcopy(self.critics)
