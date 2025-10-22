@@ -54,10 +54,10 @@ class CCM_MADDPG(object):
 
         self.target_tau = target_tau
 
-        self.actors = [ActorNetwork(self.state_dim, self.action_dim, self.actor_output_activation)] * self.n_agents
+        self.actors = [ActorNetwork(self.state_dim, self.action_dim, self.actor_output_activation) for _ in range(self.n_agents)]
         critic_state_dim = self.n_agents * self.state_dim
         critic_action_dim = self.n_agents * self.action_dim
-        self.critics = [CriticNetwork(critic_state_dim, critic_action_dim, self.state_dim, self.action_dim)] * 1
+        self.critics = [CriticNetwork(critic_state_dim, critic_action_dim, self.state_dim, self.action_dim)]
         # to ensure target network and learning network has the same weights
         self.actors_target = deepcopy(self.actors)
         self.critics_target = deepcopy(self.critics)
@@ -72,9 +72,9 @@ class CCM_MADDPG(object):
         if self.use_cuda:
             for i in range(self.n_agents):
                 self.actors[i].cuda()
-                self.critics[i].cuda()
                 self.actors_target[i].cuda()
-                self.critics_target[i].cuda()
+            self.critics[0].cuda()
+            self.critics_target[0].cuda()
 
         self.eval_episode_rewards = []
         self.server_episode_constraint_exceeds = []

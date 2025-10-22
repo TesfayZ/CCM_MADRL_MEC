@@ -65,8 +65,8 @@ class MecEnv(object):
             self.S_size[n] =  np.random.uniform(MIN_SIZE, MAX_SIZE)
             self.S_cycle[n] = np.random.uniform(MIN_CYCLE, MAX_CYCLE)
             self.S_ddl[n] = np.random.uniform(MIN_DDL, MAX_DDL - MAX_DDL/10)
-            self.S_energy[n] = deepcopy(self.Initial_energy[n]) 
-        self.S_enery = np.clip(self.S_energy, MIN_ENE, MAX_ENE)
+            self.S_energy[n] = deepcopy(self.Initial_energy[n])
+        self.S_energy = np.clip(self.S_energy, MIN_ENE, MAX_ENE)
         State_ = []
         State_ = [[self.S_power[n], self.S_gain[n], self.S_energy[n], self.S_size[n], self.S_cycle[n], \
             self.S_ddl[n], self.S_res[n]] for n in range(self.n_agents)]
