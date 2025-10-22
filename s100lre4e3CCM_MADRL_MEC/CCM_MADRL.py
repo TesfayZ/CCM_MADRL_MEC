@@ -54,10 +54,10 @@ class CCM_MADDPG(object):
 
         self.target_tau = target_tau
 
-        self.actors = [ActorNetwork(self.state_dim, self.action_dim, self.actor_output_activation)] * self.n_agents
+        self.actors = [ActorNetwork(self.state_dim, self.action_dim, self.actor_output_activation) for self.n_agents]
         critic_state_dim = self.n_agents * self.state_dim
         critic_action_dim = self.n_agents * self.action_dim
-        self.critics = [CriticNetwork(critic_state_dim, critic_action_dim, self.state_dim, self.action_dim)] * 1
+        self.critics = [CriticNetwork(critic_state_dim, critic_action_dim, self.state_dim, self.action_dim)]
         # to ensure target network and learning network has the same weights
         self.actors_target = deepcopy(self.actors)
         self.critics_target = deepcopy(self.critics)
