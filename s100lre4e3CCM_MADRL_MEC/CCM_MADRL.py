@@ -267,11 +267,11 @@ class CCM_MADDPG(object):
         
         
         #different actors
-        for agent_id in range(self.n_agents): 
-            newactor_actions = [] 
+        for agent_id in range(self.n_agents):
+            newactor_actions = []
             # Calculate new actions for each agent
-            for agent_id in range(self.n_agents):
-                newactor_action_var = self.actors[agent_id](states_var[:, agent_id, :])
+            for agent_in in range(self.n_agents):
+                newactor_action_var = self.actors[agent_in](states_var[:, agent_in, :])
                 if self.use_cuda:
                     newactor_actions.append(newactor_action_var)#newactor_actions.append(newactor_action_var.data.cpu())
                 else:
