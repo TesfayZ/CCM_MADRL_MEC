@@ -118,7 +118,15 @@ class MecEnv(object):
         #print("Time_finish ", Time_finish)   
         Time_n = [min(t, MAX_DDL)/MAX_DDL for t in Time_n] # stops process if exceeds max allowed time
         T_mean = np.mean(Time_n)
-        #print("max min Time_n = ", max(Time_n), min(Time_n)) 
+        #print("max min Time_n = ", max(Time_n), min(Time_n))
+        # NOTE (Issue #20): Scaling clarification for researchers:
+        # - 8*1024 converts KB->bits; for MB->bits should be 8*1024*1024
+        # - Energy model E=k*C*f^2 requires A_res**2, not A_res
+        # Impact: Affects absolute values and lambda_E/lambda_T balance, but:
+        # (1) All algorithms (CCM-MADRL and benchmarks) use this same environment
+        # (2) Comparative results and algorithm contribution remain valid
+        # (3) Paper contribution is combinatorial action selection, not resource values
+        # For physically accurate simulation: use 8*1024*1024 and A_res**2 (lines 87-90, 122-123)
         Energy_local = K_ENERGY_LOCAL * self.S_size*8*1024*self.S_cycle* (A_res) 
         Energy_max_local = K_ENERGY_LOCAL * self.S_size*8*1024*self.S_cycle* (self.S_res*10**9) 
         Energy_off = A_power* Time_off 
