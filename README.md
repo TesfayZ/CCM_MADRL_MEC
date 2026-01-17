@@ -1,5 +1,7 @@
 # Client-Master Multiagent Deep Reinforcement Learning for Task Offloading in Mobile Edge Computing
 
+**GPU compatible implementation available in another repo for [Gradient asymetry and activation saturation](https://github.com/TesfayZ/gradient_asymetry_AND_activation_saturation.git)**.
+
 This repository contains the implementation code for the paper **"Client-Master Multiagent Deep Reinforcement Learning for Task Offloading in Mobile Edge Computing"**.
 
 📄 **Paper**: [ACM Digital Library](https://dl.acm.org/doi/abs/10.1145/3768579)  
