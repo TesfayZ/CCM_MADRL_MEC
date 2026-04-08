@@ -84,9 +84,14 @@ If you use this code in your research, please cite:
 
 ```bibtex
 @article{10.1145/3768579,
-author = {Gebrekidan, Tesfay Zemuy and Stein, Sebastian and Norman, Timothy},
-title = {Client-Master Multiagent Deep Reinforcement Learning for Task Offloading in Mobile Edge Computing},
-year = {2025},
+author = {Gebrekidan, Tesfay Zemuy and Stein, Sebastian and Norman, Timothy J.},
+title = {Client–Master Multiagent Deep Reinforcement Learning for Task Offloading in Mobile Edge Computing},
+journal   = {ACM Transactions on Autonomous and Adaptive Systems},
+year      = {2026},
+volume    = {21},
+number    = {1},
+articleno = {2},
+pages     = {1--27},
 publisher = {Association for Computing Machinery},
 address = {New York, NY, USA},
 issn = {1556-4665},
@@ -95,15 +100,3 @@ doi = {10.1145/3768579}
 }
 ```
 
-**ArXiv Preprint**:
-```bibtex
-@misc{gebrekidan2024combinatorial_arxiv,
-  title={Combinatorial Client-Master Multiagent Deep Reinforcement Learning for Task Offloading in Mobile Edge Computing}, 
-  author={Tesfay Zemuy Gebrekidan and Sebastian Stein and Timothy J. Norman},
-  year={2024},
-  eprint={2402.11653},
-  archivePrefix={arXiv},
-  primaryClass={cs.AI},
-  url={https://arxiv.org/abs/2402.11653}
-}
-```
